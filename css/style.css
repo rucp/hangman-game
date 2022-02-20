@@ -8,7 +8,7 @@
 }
 
 body {
-    background-color: aquamarine;
+    background-color: rgba(8, 12, 10, 0.397);
     font-family: 'Syne Tactile', sans-serif;
 }
 
@@ -20,9 +20,11 @@ a {
     text-decoration: none;
     color: white;
     background-color: rgb(190, 99, 99);
-    padding: 10px;
+    padding: 4px 10px;
     border-radius: 5px;
     font-family: 'Roboto Condensed';
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.267);
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.267);
 }
 
 a:hover {
@@ -34,11 +36,15 @@ a:hover {
     letter-spacing: 0.02rem;
     background: hsl(154, 59%, 51%);
     color: rgb(0, 0, 0);
-    border-color: #55B78D;
+    /* border-color: #55B78D; */
     text-align: center;
     padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.button:hover {
+    background-color: white;
 }
 
 main {
@@ -47,14 +53,14 @@ main {
     margin: 40px auto;
     padding: 20px;
     border-radius: 15px;
-    box-shadow: 0px -3px 7px rgba(0, 0, 0, 0.582);
+    box-shadow: 0px -3px 7px rgba(0, 0, 0, 0.281);
 }
 
 h1 {
     text-align: center;
     margin-bottom: 20px;
     font-size: 2.8rem;
-    text-shadow: -1px 3px 6px rgba(0, 0, 0, 0.486);
+    text-shadow: -1px 3px 6px rgba(0, 0, 0, 0.281);
 }
 
 nav {
