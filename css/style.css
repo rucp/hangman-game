@@ -1,3 +1,5 @@
+/* fonts */
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Syne+Tactile&display=swap');
 
 @font-face {
@@ -10,25 +12,12 @@
      src: url(../fonts/i_know_a_ghost/iknowaghost.ttf);
  }
 
+ /* reset */
 * {
     margin: 0;
     padding: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-body {
-    background-color: #000000;
-    font-family: 'Trashy', sans-serif;
-}
-
-.idioms {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
 }
 
 ul, ol, li {
@@ -38,6 +27,12 @@ ul, ol, li {
     text-align: center;
     justify-content: center;
     gap: 10px;
+}
+
+
+body {
+    background-color: #000000;
+    font-family: 'Trashy', sans-serif;
 }
 
 a {
@@ -58,23 +53,43 @@ a:hover {
 }
 
 .button {
-    font-family: 'Roboto Condensed';
-    letter-spacing: 0.02rem;
     background: #631427;
-    font-weight: 600;
-    color: rgb(255, 255, 255);
-    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.431);
     /* border-color: #55B78D; */
-    text-align: center;
-    padding: 5px 10px;
     border-radius: 5px;
+    color: rgb(255, 255, 255);
     cursor: pointer;
+    font-family: 'Roboto Condensed';
+    font-weight: 600;
+    letter-spacing: 0.02rem;
+    margin: 5px;
+    padding: 5px 10px;
+    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.431);
+    text-align: center;
 }
-
 
 .button:hover {
     background-color: #631426dc;
 }
+
+/* index */
+
+.idioms {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+h1.main-page {
+    color: rgb(255, 254, 254);
+    margin-right: 20px;
+    letter-spacing: 0.4rem;
+    line-height: 3.4rem;
+}
+
+/*  en/br */
 
 main {
     background-color: white;
@@ -83,13 +98,6 @@ main {
     padding: 10px;
     border-radius: 15px;
     box-shadow: 0px 0px 6px 2px rgba(115, 116, 108, 0.644);
-}
-
-h1.main-page {
-    color: rgb(255, 254, 254);
-    margin-right: 20px;
-    letter-spacing: 0.4rem;
-    line-height: 3.4rem;
 }
 
 h1 {
@@ -107,22 +115,18 @@ nav {
     align-items: center;
 }
 
-ul {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    gap: 10px;
-}
-
 .themes {
+    box-sizing: border-box;
     display: flex;
+    align-items: center;
     justify-content: center;
     gap: 10px;
     margin: 15px;
+    flex-wrap: wrap;
 }
 
 /* the game */
+
 .thegame {
     display: grid;
     grid-template-columns: 350px 1fr;
@@ -133,10 +137,22 @@ ul {
     height: 330px;
 }
 
+/* responsive */
+
+@media screen and (max-width: 978px) {
+    .idioms {
+        display: flex;
+        flex-direction: column;
+    }
+
+    h1.main-page {
+        margin-bottom: 15px;
+    }
+}
+
 /* keyboard */
 
 .keyboard {
-    position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -207,11 +223,3 @@ ul {
     background: rgba(0, 0, 0, 0.25);
 }
 
-/* responsive */
-
-@media screen and (max-width: 978px) {
-    .idioms {
-        display: flex;
-        flex-direction: column;
-    }
-    }
