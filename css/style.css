@@ -206,3 +206,12 @@ ul {
 .keyboard__key--dark {
     background: rgba(0, 0, 0, 0.25);
 }
+
+/* responsive */
+
+@media screen and (max-width: 978px) {
+    .idioms {
+        display: flex;
+        flex-direction: column;
+    }
+    }
