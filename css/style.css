@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Syne+Tactile&display=swap');
 
+@font-face {
+    font-family: 'Trashy';
+    src: url(../fonts/go_around_the_books/go\ around\ the\ books.ttf);
+ }
+
+ @font-face {
+     font-family: 'Ghost';
+     src: url(../fonts/i_know_a_ghost/iknowaghost.ttf);
+ }
+
 * {
     margin: 0;
     padding: 0;
@@ -8,34 +18,52 @@
 }
 
 body {
-    background-color: rgba(8, 12, 10, 0.397);
-    font-family: 'Syne Tactile', sans-serif;
+    background-color: #000000;
+    font-family: 'Trashy', sans-serif;
+}
+
+.idioms {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 ul, ol, li {
     list-style: none;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    gap: 10px;
 }
 
 a {
     text-decoration: none;
     color: white;
-    background-color: rgb(190, 99, 99);
-    padding: 4px 10px;
+    background-color: #631427;
+    padding: 20px 50px;
     border-radius: 5px;
-    font-family: 'Roboto Condensed';
+    font-size: 25px;
+    font-weight: 500;
+    font-family: 'Ghost';
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.267);
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.267);
 }
 
 a:hover {
-    background-color: black;
+    background-color: #6314269f;
 }
 
 .button {
     font-family: 'Roboto Condensed';
     letter-spacing: 0.02rem;
-    background: hsl(154, 59%, 51%);
-    color: rgb(0, 0, 0);
+    background: #631427;
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.431);
     /* border-color: #55B78D; */
     text-align: center;
     padding: 5px 10px;
@@ -43,39 +71,138 @@ a:hover {
     cursor: pointer;
 }
 
+
 .button:hover {
-    background-color: white;
+    background-color: #631426dc;
 }
 
 main {
     background-color: white;
     width: 80%;
-    margin: 40px auto;
-    padding: 20px;
+    margin: 20px auto;
+    padding: 10px;
     border-radius: 15px;
-    box-shadow: 0px -3px 7px rgba(0, 0, 0, 0.281);
+    box-shadow: 0px 0px 6px 2px rgba(115, 116, 108, 0.644);
+}
+
+h1.main-page {
+    color: rgb(255, 254, 254);
+    margin-right: 20px;
+    letter-spacing: 0.4rem;
+    line-height: 3.4rem;
 }
 
 h1 {
+    margin-top: 15px;
     text-align: center;
-    margin-bottom: 20px;
-    font-size: 2.8rem;
-    text-shadow: -1px 3px 6px rgba(0, 0, 0, 0.281);
+    font-size: 2.5rem;
+    text-shadow: -1px 1px 12px #00000026
 }
 
 nav {
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 ul {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
-    gap: 6px;
+    align-content: center;
+    gap: 10px;
 }
 
 .themes {
     display: flex;
     justify-content: center;
     gap: 10px;
+    margin: 15px;
+}
+
+/* the game */
+.thegame {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+}
+
+.drawing {
+    border: 1px solid black;
+    height: 330px;
+}
+
+/* keyboard */
+
+.keyboard {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 5px 0;
+    background:  rgba(8, 12, 10, 0.397);
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    user-select: none;
+    transition: bottom 0.4s;
+}
+
+.keyboard--hidden {
+    bottom: -100%;
+} 
+
+.keyboard_keys {
+    text-align: center;
+}
+
+.keyboard_key {
+    height: 33px;
+    width: 5%;
+    max-width: 90px;
+    margin: 3px;
+    border-radius: 4px;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    font-size: 1.05rem;
+    outline: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: top;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+}
+
+.keyboard_key:active {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.keyboard__key--wide {
+    width: 12%;
+}
+
+.keyboard__key--extra-wide {
+    width: 36%;
+    max-width: 500px;
+}
+.keyboard__key--activatable::after {
+    content: '';
+    top: 10px;
+    right: 10px;
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 50%;
+}
+
+.keyboard__key--active::after {
+    background: #08ff00;
+}
+
+.keyboard__key--dark {
+    background: rgba(0, 0, 0, 0.25);
 }
