@@ -61,7 +61,7 @@ a:hover {
     font-family: 'Roboto Condensed';
     font-weight: 600;
     letter-spacing: 0.02rem;
-    margin: 5px;
+    margin: 4px;
     padding: 5px 10px;
     text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.431);
     text-align: center;
@@ -120,8 +120,6 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    margin: 15px;
     flex-wrap: wrap;
 }
 
@@ -129,12 +127,28 @@ nav {
 
 .thegame {
     display: grid;
-    grid-template-columns: 350px 1fr;
+    grid-template-columns: 400px 1fr;
 }
 
 .drawing {
     border: 1px solid black;
     height: 330px;
+    gap: 10px;
+}
+
+.insidethegame {
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#palavraSorteada {
+    font-size: 4rem;
+    text-align: center;
+    justify-items: center;
+    align-items: center;
 }
 
 /* responsive */
@@ -157,7 +171,7 @@ nav {
     bottom: 0;
     width: 100%;
     padding: 5px 0;
-    background:  rgba(8, 12, 10, 0.397);
+    background:  black;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
     user-select: none;
     transition: bottom 0.4s;
@@ -172,8 +186,8 @@ nav {
 }
 
 .keyboard_key {
-    height: 33px;
-    width: 5%;
+    height: 40px;
+    width: 8%;
     max-width: 90px;
     margin: 3px;
     border-radius: 4px;

@@ -173,11 +173,26 @@ window.addEventListener('DOMContentLoaded', function () {
     // lendo o arquivo json
 
 fetch("./json/list.json")
-    .then(list => list.json())
-    .then(data => {
-  return data;
-}
-);
+     .then(list => list.json())
+     .then(data => animals(data));
+
+     function animals(data) {
+        let animals = data.animals;
+        const anAl = Math.floor(Math.random() * animals.length);
+        anSor = animals[anAl];
+        let replace = anSor.replace('a', ' _ ')
+        palavraSorteada.innerHTML = `${replace}`
+    }
+
+    
+
+
+
+
+// var animals = []; 
+//    object_name.members.forEach((animals) => { 
+//      animals.push(animals.data);
+//    });
 
 // document.querySelector('.pt-br').addEventListener('click', () => {
 //     document.querySelector('.nav').innerHTML = `
