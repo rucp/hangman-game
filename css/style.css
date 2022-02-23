@@ -212,8 +212,8 @@ h1.title {
 }
 
 .keys button {
-    width: 30px;
-    height: 30px;
+    width: 24px;
+    height: 24px;
     margin: 2px;
     cursor: pointer;
     box-shadow: 0px 2px 8px dimgrey;
@@ -251,8 +251,8 @@ h1.title {
 
 @media (min-width: 376px) {
     .keys button {
-        width: 36px;
-        height: 36px;
+        width: 30px;
+        height: 30px;
         font-size: 2em;
     }
 
@@ -271,8 +271,8 @@ h1.title {
 
 @media (min-width: 426px) {
     .keys button {
-        width: 45px;
-        height: 45px;
+        width: 36px;
+        height: 36px;
     }
 
     #secret-word {
@@ -289,8 +289,8 @@ h1.title {
 
 @media (min-width: 769px) {
     .keys button {
-        width: 64px;
-        height: 64px;
+        width: 68px;
+        height: 68px;
     }
 
     #secret-word {
