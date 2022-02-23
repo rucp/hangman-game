@@ -148,6 +148,16 @@ h1.title {
     margin-top: 30px;
 }
 
+.letters {
+    width: 1rem;
+    text-align: center;
+    border-bottom: 2px solid white;
+    color: rgb(255, 255, 255);
+    padding: 2px;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
 /* keyboard */
 
 .keys {
