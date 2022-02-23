@@ -246,8 +246,8 @@ h1.title {
 
 @media (min-width: 769px) {
     .keys button {
-        width: 64px;
-        height: 64px;
+        width: 60px;
+        height: 60px;
     }
 
     #secret-word {

@@ -252,9 +252,6 @@ function createSecretWord() {
     
     secretRandomWord = words[indexWord].name.toUpperCase();
     secretWordCategory = words[indexWord].category.toUpperCase();
-    console.log(secretRandomWord);
-    console.log(secretWordCategory);
-
 }
 
 setWordOnScreen();
