@@ -86,50 +86,6 @@ h1 {
     text-shadow: -1px 1px 12px #00000026
 }
 
-nav {
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-.themes {
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-/* the game */
-
-.thegame {
-    display: grid;
-    grid-template-columns: 400px 1fr;
-}
-
-.drawing {
-    border: 1px solid black;
-    height: 330px;
-    gap: 10px;
-}
-
-.insidethegame {
-    font-family: sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-#palavraSorteada {
-    font-size: 4rem;
-    text-align: center;
-    justify-items: center;
-    align-items: center;
-}
-
 /* responsive */
 
 @media screen and (max-width: 978px) {
@@ -175,6 +131,7 @@ h1.title {
     margin: 10px 0;
     text-shadow: -5px -1px 0px #5f6c6c;
 }
+
 #image {
     background-image: url("../img/forca.jpg");
     width: 150px;
@@ -189,16 +146,6 @@ h1.title {
     align-items: center;
     font-size: 1em;
     margin-top: 30px;
-}
-
-.letters {
-    width: 1rem;
-    text-align: center;
-    border-bottom: 2px solid white;
-    color: rgb(255, 255, 255);
-    padding: 2px;
-    margin-left: 3px;
-    margin-right: 3px;
 }
 
 /* keyboard */
@@ -253,7 +200,7 @@ h1.title {
     .keys button {
         width: 30px;
         height: 30px;
-        font-size: 2em;
+        font-size: 1.2em;
     }
 
     #secret-word {
@@ -289,8 +236,8 @@ h1.title {
 
 @media (min-width: 769px) {
     .keys button {
-        width: 68px;
-        height: 68px;
+        width: 64px;
+        height: 64px;
     }
 
     #secret-word {
