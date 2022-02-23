@@ -162,7 +162,6 @@ body {
     flex-wrap: wrap;
     flex-direction: column;
     background-color: black;
-    width: 300px;
     padding: 20px 0;
     border-radius: 10px;
     margin: auto;
@@ -178,8 +177,8 @@ h1.title {
 }
 #image {
     background-image: url("../img/forca.jpg");
-    width: 500px;
-    height: 272px;
+    width: 150px;
+    height: 220px;
     background-repeat: no-repeat;
 }
 
@@ -241,9 +240,6 @@ h1.title {
 }
 
 @media (min-width: 321px) {
-    .container {
-        width: 400px;
-    }
     .keys button {
         width: 25px;
         height: 25px;
@@ -254,9 +250,6 @@ h1.title {
 }
 
 @media (min-width: 376px) {
-    .container {
-        width: 600px;
-    }
     .keys button {
         width: 30px;
         height: 30px;
@@ -277,9 +270,6 @@ h1.title {
 }
 
 @media (min-width: 426px) {
-    .container {
-        width: 600px;
-    }
     .keys button {
         width: 36px;
         height: 36px;
@@ -298,9 +288,6 @@ h1.title {
 }
 
 @media (min-width: 769px) {
-    .container {
-        width: 900px;
-    }
     .keys button {
         width: 68px;
         height: 68px;
