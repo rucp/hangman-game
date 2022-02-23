@@ -1,15 +1,12 @@
 /* fonts */
 
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Syne+Tactile&display=swap');
 
 @font-face {
     font-family: 'Trashy';
     src: url(../fonts/go_around_the_books/go\ around\ the\ books.ttf);
- }
-
- @font-face {
-     font-family: 'Ghost';
-     src: url(../fonts/i_know_a_ghost/iknowaghost.ttf);
  }
 
  /* reset */
@@ -29,12 +26,6 @@ ul, ol, li {
     gap: 10px;
 }
 
-
-body {
-    background-color: #000000;
-    font-family: 'Trashy', sans-serif;
-}
-
 a {
     text-decoration: none;
     color: white;
@@ -50,25 +41,6 @@ a {
 
 a:hover {
     background-color: #6314269f;
-}
-
-.button {
-    background: #631427;
-    /* border-color: #55B78D; */
-    border-radius: 5px;
-    color: rgb(255, 255, 255);
-    cursor: pointer;
-    font-family: 'Roboto Condensed';
-    font-weight: 600;
-    letter-spacing: 0.02rem;
-    margin: 4px;
-    padding: 5px 10px;
-    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.431);
-    text-align: center;
-}
-
-.button:hover {
-    background-color: #631426dc;
 }
 
 /* index */
@@ -87,6 +59,7 @@ h1.main-page {
     margin-right: 20px;
     letter-spacing: 0.4rem;
     line-height: 3.4rem;
+    font-family: 'Trashy', sans-serif;
 }
 
 /*  en/br */
@@ -164,76 +137,183 @@ nav {
     }
 }
 
-/* keyboard */
 
-.keyboard {
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    padding: 5px 0;
-    background:  black;
-    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
-    user-select: none;
-    transition: bottom 0.4s;
+/* CONSERTAR STYLE */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box ;
 }
 
-.keyboard--hidden {
-    bottom: -100%;
-} 
+body {
+    width: 100wh;
+    height: 90vh;
+    margin-top: 10px;
+    background-color: black;
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
+}
 
-.keyboard_keys {
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-color: black;
+    width: 300px;
+    padding: 20px 0;
+    border-radius: 10px;
+    margin: auto;
+    box-shadow: 0px 0px 6px 5px rgba(115, 116, 108, 0.644);
+}
+
+h1.title {
+    color: rgb(255, 255, 255);
+    font-family: 'Trashy', sans-serif;
+    font-size: 2.5rem;
+    margin: 10px 0;
+    text-shadow: -5px -1px 0px #5f6c6c;
+}
+#image {
+    background-image: url("../img/forca.jpg");
+    width: 500px;
+    height: 272px;
+    background-repeat: no-repeat;
+}
+
+#secret-word {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 1em;
+    margin-top: 30px;
+}
+
+.letters {
+    width: 1rem;
+    text-align: center;
+    border-bottom: 2px solid white;
+    color: rgb(255, 255, 255);
+    padding: 2px;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+/* keyboard */
+
+.keys {
     text-align: center;
 }
 
-.keyboard_key {
-    height: 40px;
-    width: 8%;
-    max-width: 90px;
-    margin: 3px;
-    border-radius: 4px;
-    border: none;
-    background: rgba(255, 255, 255, 0.2);
-    color: #ffffff;
-    font-size: 1.05rem;
-    outline: none;
+#keyboard {
+    margin-top: 30px;
+}
+
+.keys button {
+    width: 24px;
+    height: 24px;
+    margin: 2px;
     cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    vertical-align: top;
-    padding: 0;
-    -webkit-tap-highlight-color: transparent;
-    position: relative;
+    box-shadow: 0px 2px 8px dimgrey;
+    border-radius: 5px;
+    border: 1px solid grey;
+    color: black;
+    font-weight: 600;
+    font-family: 'Ubuntu', sans-serif;
 }
 
-.keyboard_key:active {
-    background: rgba(255, 255, 255, 0.12);
+.keys button:disabled {
+    cursor: not-allowed;
 }
 
-.keyboard__key--wide {
-    width: 12%;
+
+.keys button:hover {
+    transform: scale(1.3);
 }
 
-.keyboard__key--extra-wide {
-    width: 36%;
-    max-width: 500px;
-}
-.keyboard__key--activatable::after {
-    content: '';
-    top: 10px;
-    right: 10px;
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    background: rgba(0, 0, 0, 0.4);
-    border-radius: 50%;
+#category {
+    margin-top: 30px;
+    color: white;
+    font-size: 1.2em;
 }
 
-.keyboard__key--active::after {
-    background: #08ff00;
+@media (min-width: 321px) {
+    .container {
+        width: 400px;
+    }
+    .keys button {
+        width: 25px;
+        height: 25px;
+    }
+    #category {
+        font-size: 1.3em;
+    }
 }
 
-.keyboard__key--dark {
-    background: rgba(0, 0, 0, 0.25);
+@media (min-width: 376px) {
+    .container {
+        width: 600px;
+    }
+    .keys button {
+        width: 30px;
+        height: 30px;
+        font-size: 2em;
+    }
+
+    #secret-word {
+        color: black;
+        font-size: 1.3em;
+    }
+
+    .letters {
+        width: 18px;
+    }
+    #category {
+        font-size: 1.5em;
+    }
 }
 
+@media (min-width: 426px) {
+    .container {
+        width: 600px;
+    }
+    .keys button {
+        width: 36px;
+        height: 36px;
+    }
+
+    #secret-word {
+        font-size: 1.5em;
+    }
+
+    .letters {
+        width: 20px;
+    }
+    #category {
+        font-size: 1.6em;
+    }
+}
+
+@media (min-width: 769px) {
+    .container {
+        width: 900px;
+    }
+    .keys button {
+        width: 68px;
+        height: 68px;
+    }
+
+    #secret-word {
+        font-size: 2.5em;
+    }
+
+    .letters {
+        width: 35px;
+    }
+    #category {
+        font-size: 3em;
+    }
+}

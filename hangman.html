@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">HangMan</h1>
+        <div id="image">
+            
+        </div>
+        <div id="secret-word">
+            <!-- 
+            <div class="letters">A</div>
+            <div class="letters">A</div>
+            <div class="letters">A</div>
+            <div class="letters">A</div>
+            <div class="letters">A</div> 
+            -->
+        </div>
+        <div id="keyboard">
+            <div class="keys">
+                <button id="key-Q" onclick="verifyChosenWord('Q')">Q</button>
+                <button id="key-W" onclick="verifyChosenWord('W')">W</button>
+                <button id="key-E" onclick="verifyChosenWord('E')">E</button>
+                <button id="key-R" onclick="verifyChosenWord('R')">R</button>
+                <button id="key-T" onclick="verifyChosenWord('T')">T</button>
+                <button id="key-Y" onclick="verifyChosenWord('Y')">Y</button>
+                <button id="key-U" onclick="verifyChosenWord('U')">U</button>
+                <button id="key-I" onclick="verifyChosenWord('I')">I</button>
+                <button id="key-O" onclick="verifyChosenWord('O')">O</button>
+                <button id="key-P" onclick="verifyChosenWord('P')">P</button>
+            </div>
+            <div class="keys">
+                <button id="key-A" onclick="verifyChosenWord('A')">A</button>
+                <button id="key-S" onclick="verifyChosenWord('S')">S</button>
+                <button id="key-D" onclick="verifyChosenWord('D')">D</button>
+                <button id="key-F" onclick="verifyChosenWord('F')">F</button>
+                <button id="key-G" onclick="verifyChosenWord('G')">G</button>
+                <button id="key-H" onclick="verifyChosenWord('H')">H</button>
+                <button id="key-J" onclick="verifyChosenWord('J')">J</button>
+                <button id="key-K" onclick="verifyChosenWord('K')">K</button>
+                <button id="key-L" onclick="verifyChosenWord('L')">L</button>
+            </div>
+            <div class="keys">
+                <button id="key-Z" onclick="verifyChosenWord('Z')">Z</button>
+                <button id="key-X" onclick="verifyChosenWord('X')">X</button>
+                <button id="key-C" onclick="verifyChosenWord('C')">C</button>
+                <button id="key-V" onclick="verifyChosenWord('V')">V</button>
+                <button id="key-B" onclick="verifyChosenWord('B')">B</button>
+                <button id="key-N" onclick="verifyChosenWord('N')">N</button>
+                <button id="key-M" onclick="verifyChosenWord('M')">M</button>
+                <button id="btnRestart">➕</button>
+            </div> 
+        </div>
+        <div id="category">
+            <!-- CATEGORIA -->
+        </div>
+        <!-- inicio modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="color: black;">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel"></h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body" id="modal-body">
+                
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        <!-- fim modal -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="js/script.js"></script>
+    </div>
+</body>
+</html>

@@ -1,211 +1,364 @@
-// keyboard
+let attempts = 6;
+let dinamicList = [];
+let secretWordCategory;
+let secretRandomWord;
 
-const keyboard = {
-    elements: {
-        main: null,
-        keysContainer: null,
-        keys: []
+const words = [
+    word001 = {
+        name: "Alligator",
+        category: "Animals"
     },
-
-    eventHandlers: {
-        oninput: null,
-        onclose: null
+    word002 = {
+        name: "Chimpanzee",
+        category: "Animals"
     },
-
-    properties: {
-        value: "",
-        capsLock: false
+    word003 = {
+        name: "Elephant",
+        category: "Animals"
     },
-
-    init() {
-        // create main elements
-        this.elements.main = document.createElement("div");
-        this.elements.keysContainer = document.createElement("div");
-
-        // setup main elements
-
-        this.elements.main.classList.add("keyboard");
-        this.elements.keysContainer.classList.add("keyboard_keys");
-        this.elements.keysContainer.appendChild(this._createKeys());
-
-        this.elements.keys = this.elements.keysContainer.querySelectorAll(".keyboard_key");
-
-        // add to DOM
-        this.elements.main.appendChild(this.elements.keysContainer);
-        document.body.appendChild(this.elements.main);
-
-         // Automatically use keyboard for elements with .use-keyboard-input
-         document.querySelectorAll(".use-keyboard-input").forEach(element => {
-            element.addEventListener("focus", () => {
-                this.open(element.value, currentValue => {
-                    element.value = currentValue;
-                });
-            });
-        });
+    word004 = {
+        name: "Hippopotamus",
+        category: "Animals"
     },
-
-    _createKeys() {
-        const fragment = document.createDocumentFragment();
-        const keyLayout = [
-        "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P",
-        "A", "S", "D", "F", "G", "H", "J", "K", "L",
-        "Z", "X", "C", "V", "B", "N", "M",
-        ];
-
-        keyLayout.forEach(key => {
-            const keyElement = document.createElement("button");
-            const insertLineBreak = ["P", "L"].indexOf(key) !== -1;
-
-            // add atributes/classes
-            keyElement.setAttribute("type", "button");
-            keyElement.classList.add("keyboard_key");
-
-            switch (key) {
-                case "backspace":
-                    keyElement.classList.add("keyboard__key--wide");
-                    keyElement.innerHTML = createIconHTML("backspace");
-
-                    keyElement.addEventListener("click", () => {
-                        this.properties.value = this.properties.value.substring(0, this.properties.value.length - 1);
-                        this._triggerEvent("oninput");
-                    });
-
-                    break;
-
-                case "caps":
-                    keyElement.classList.add("keyboard__key--wide", "keyboard__key--activatable");
-                    keyElement.innerHTML = createIconHTML("keyboard_capslock");
-
-                    keyElement.addEventListener("click", () => {
-                        this._toggleCapsLock();
-                        keyElement.classList.toggle("keyboard__key--active", this.properties.capsLock);
-                    });
-
-                    break;
-
-                case "enter":
-                    keyElement.classList.add("keyboard__key--wide");
-                    keyElement.innerHTML = createIconHTML("keyboard_return");
-
-                    keyElement.addEventListener("click", () => {
-                        this.properties.value += "\n";
-                        this._triggerEvent("oninput");
-                    });
-
-                    break;
-
-                case "space":
-                    keyElement.classList.add("keyboard__key--extra-wide");
-                    keyElement.innerHTML = createIconHTML("space_bar");
-
-                    keyElement.addEventListener("click", () => {
-                        this.properties.value += " ";
-                        this._triggerEvent("oninput");
-                    });
-
-                    break;
-
-                case "done":
-                    keyElement.classList.add("keyboard__key--wide", "keyboard__key--dark");
-                    keyElement.innerHTML = createIconHTML("check_circle");
-
-                    keyElement.addEventListener("click", () => {
-                        this.close();
-                        this._triggerEvent("onclose");
-                    });
-
-                    break;
-
-                default:
-                    keyElement.textContent = key.toUpperCase();
-
-                    break;
-            }
-
-            fragment.appendChild(keyElement);
-
-            if (insertLineBreak) {
-                fragment.appendChild(document.createElement("br"));
-            }
-        });
-
-        return fragment;
+    word005 = {
+        name: "Kangaroo",
+        category: "Animals"
     },
-
-    _triggerEvent(handlerName) {
-        if (typeof this.eventHandlers[handlerName] == "function") {
-            this.eventHandlers[handlerName](this.properties.value);
-        }
+    word006 = {
+        name: "Otter",
+        category: "Animals"
     },
-
-    _toggleCapsLock() {
-        this.properties.capsLock = !this.properties.capsLock;
-
-        for (const key of this.elements.keys) {
-            if (key.childElementCount === 0) {
-                key.textContent = this.properties.capsLock ? key.textContent.toUpperCase() : key.textContent.toLowerCase();
-            }
-        }
+    word007 = {
+        name: "Peacock",
+        category: "Animals"
     },
-
-    open(initialValue, oninput, onclose) {
-        this.properties.value = initialValue || "";
-        this.eventHandlers.oninput = oninput;
-        this.eventHandlers.onclose = onclose;
-        this.elements.main.classList.remove("keyboard--hidden");
+    word008 = {
+        name: "Turtle",
+        category: "Animals"
     },
-
-    close() {
-        this.properties.value = "";
-        this.eventHandlers.oninput = oninput;
-        this.eventHandlers.onclose = onclose;
-        this.elements.main.classList.add("keyboard--hidden");
+    word009 = {
+        name: "Raccoon",
+        category: "Animals"
+    },
+    word010 = {
+        name: "Wolf",
+        category: "Animals"
+    },
+    word011 = {
+        name: "Amber",
+        category: "Colors"
+    },
+    word012 = {
+        name: "Bronze",
+        category: "Colors"
+    },
+    word013 = {
+        name: "Chocolate",
+        category: "Colors"
+    },
+    word014 = {
+        name: "Crimson",
+        category: "Colors"
+    },
+    word015 = {
+        name: "Fuchsia",
+        category: "Colors"
+    },
+    word016 = {
+        name: "Indigo",
+        category: "Colors"
+    },
+    word017 = {
+        name: "Lavender",
+        category: "Colors"
+    },
+    word018 = {
+        name: "Maroon",
+        category: "Colors"
+    },
+    word019 = {
+        name: "Orange",
+        category: "Colors"
+    },
+    word020 = {
+        name: "Rose",
+        category: "Colors"
+    },
+    word021 = {
+        name: "Afghanistan",
+        category: "Countries"
+    },
+    word022 = {
+        name: "Bangladesh",
+        category: "Countries"
+    },
+    word023 = {
+        name: "Cambodia",
+        category: "Countries"
+    },
+    word024 = {
+        name: "Denmark",
+        category: "Countries"
+    },
+    word025 = {
+        name: "Egypt",
+        category: "Countries"
+    },
+    word026 = {
+        name: "Georgia",
+        category: "Countries"
+    },
+    word027 = {
+        name: "Indonesia",
+        category: "Countries"
+    },
+    word028 = {
+        name: "Jamaica",
+        category: "Countries"
+    },
+    word029 = {
+        name: "Macedonia",
+        category: "Countries"
+    },
+    word030 = {
+        name: "Netherlands",
+        category: "Countries"
+    },
+    word031 = {
+        name: "Apricot",
+        category: "Fruits"
+    },
+    word032 = {
+        name: "Blackberry",
+        category: "Fruits"
+    },
+    word033 = {
+        name: "Damson",
+        category: "Fruits"
+    },
+    word034 = {
+        name: "Elderberry",
+        category: "Fruits"
+    },
+    word035 = {
+        name: "Huckleberry",
+        category: "Fruits"
+    },
+    word036 = {
+        name: "Jackfruit",
+        category: "Fruits"
+    },
+    word037 = {
+        name: "Lemon",
+        category: "Fruits"
+    },
+    word038 = {
+        name: "Mango",
+        category: "Fruits"
+    },
+    word039 = {
+        name: "Nectarine",
+        category: "Fruits"
+    },
+    word040 = {
+        name: "Papaya",
+        category: "Fruits"
+    },
+    word041 = {
+        name: "Desk",
+        category: "Objects"
+    },
+    word042 = {
+        name: "Book",
+        category: "Objects"
+    },
+    word043 = {
+        name: "Backpack",
+        category: "Objects"
+    },
+    word044 = {
+        name: "Pins",
+        category: "Objects"
+    },
+    word045 = {
+        name: "Calculator",
+        category: "Objects"
+    },
+    word046 = {
+        name: "Ballpoint",
+        category: "Objects"
+    },
+    word047 = {
+        name: "Highlighter",
+        category: "Objects"
+    },
+    word048 = {
+        name: "Palette",
+        category: "Objects"
+    },
+    word049 = {
+        name: "Beaker",
+        category: "Objects"
+    },
+    word050 = {
+        name: "Computer",
+        category: "Objects"
+    },
+    word051 = {
+        name: "Bartender",
+        category: "Professions"
+    },
+    word052 = {
+        name: "Carpenter",
+        category: "Professions"
+    },
+    word053 = {
+        name: "Designer",
+        category: "Professions"
+    },
+    word054 = {
+        name: "Educator",
+        category: "Professions"
+    },
+    word055 = {
+        name: "Firefighter",
+        category: "Professions"
+    },
+    word056 = {
+        name: "Horticulturist",
+        category: "Professions"
+    },
+    word057 = {
+        name: "Hairdresser",
+        category: "Professions"
+    },
+    word058 = {
+        name: "Journalist",
+        category: "Professions"
+    },
+    word059 = {
+        name: "Mathematician",
+        category: "Professions"
+    },
+    word060 = {
+        name: "Nurse",
+        category: "Professions"
     }
-};
+]
 
-window.addEventListener('DOMContentLoaded', function () {
-    keyboard.init();
+createSecretWord()
+function createSecretWord() {
+    const indexWord = parseInt(Math.random()* words.length);
+    
+    secretRandomWord = words[indexWord].name.toUpperCase();
+    secretWordCategory = words[indexWord].category.toUpperCase();
+    console.log(secretRandomWord);
+    console.log(secretWordCategory);
+
+}
+
+setWordOnScreen();
+function setWordOnScreen() {
+    const category = document.getElementById('category');
+    category.innerHTML = secretWordCategory;
+
+    const wordScreen = document.getElementById('secret-word');
+    wordScreen.innerHTML = "";
+
+    for(i = 0; i < secretRandomWord.length; i++) {
+        if(dinamicList[i] == undefined) {
+            dinamicList[i] = "&nbsp;"
+            wordScreen.innerHTML = wordScreen.innerHTML + `<div class='letters'>${dinamicList[i]}</div>`
+        }
+        else {
+            wordScreen.innerHTML = wordScreen.innerHTML + `<div class='letters'>${dinamicList[i]}</div>`
+        }
+    }
+}
+
+function verifyChosenWord(letter) {
+    document.getElementById("key-" + letter).disabled = true;
+    if (attempts > 0) {
+        changeColorLetter("key-" + letter);
+        compareLists(letter);
+        setWordOnScreen()
+    }
+    
+}
+
+function changeColorLetter(key) {
+    document.getElementById(key).style.background = "black";
+    document.getElementById(key).style.color = "#ffffff";
+}
+
+function compareLists(letter) {
+    const position = secretRandomWord.indexOf(letter)
+    if (position < 0) {
+        attempts--
+        loadImage();
+
+        if (attempts == 0) {
+            openModal("You lost it!", `Try again... The secret word was ${secretRandomWord}.`);
+        }
+    }
+    else {
+        for(i = 0; i < secretRandomWord.length; i++) {
+            if(secretRandomWord[i] == letter) {
+                dinamicList[i] = letter;
+            }
+        }
+    }
+    let vitory = true;
+    for(i = 0; i < secretRandomWord.length; i++) {
+        if(secretRandomWord[i] != dinamicList[i]) {
+            vitory = false;
+        }
+    }
+    if (vitory == true) {
+        openModal("You won", `Congratulations! `);
+        attempts = 0;
+    }
+}
+
+function loadImage() {
+    switch(attempts) {
+        case 5:
+            document.getElementById("image").style.background = "url('./img/forca01.jpg')"
+            break;
+        case 4:
+            document.getElementById("image").style.background = "url('./img/forca02.jpg')"
+            break;
+        case 3:
+            document.getElementById("image").style.background = "url('./img/forca03.jpg')"
+            break;
+        case 2:
+            document.getElementById("image").style.background = "url('./img/forca04.jpg')"
+            break;
+        case 1:
+            document.getElementById("image").style.background = "url('./img/forca05.jpg')"
+            break;
+        case 0:
+            document.getElementById("image").style.background = "url('./img/forca06.jpg')"
+            break;
+        default:
+            document.getElementById("image").style.background = "url('./img/forca.jpg')"
+            break;
+    }
+}
+
+function openModal(title, message) {
+    let modalTitle = document.getElementById('exampleModalLabel');
+    modalTitle.innerText = title;
+
+    let modalBody = document.getElementById('modal-body');
+    modalBody.innerHTML = message;
+
+    $("#myModal").modal({
+        show: true
+    });
+}
+
+let restart = document.querySelector("#btnRestart")
+restart.addEventListener("click", function() {
+    location.reload();
 });
-
-
-// the game
-
-    // lendo o arquivo json
-
-fetch("./json/list.json")
-     .then(list => list.json())
-     .then(data => animals(data));
-
-     function animals(data) {
-        let animals = data.animals;
-        const anAl = Math.floor(Math.random() * animals.length);
-        anSor = animals[anAl];
-        let replace = anSor.replace('a', ' _ ')
-        palavraSorteada.innerHTML = `${replace}`
-    }
-
-    
-
-
-
-
-// var animals = []; 
-//    object_name.members.forEach((animals) => { 
-//      animals.push(animals.data);
-//    });
-
-// document.querySelector('.pt-br').addEventListener('click', () => {
-//     document.querySelector('.nav').innerHTML = `
-    
-//     `
-// })
-
-
-
-
-
-
-// function animals(items) {
-//     return
-//     items[Math.floor(Math.random()(items.length))];
-// }
