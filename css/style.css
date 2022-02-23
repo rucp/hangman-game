@@ -4,17 +4,23 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Syne+Tactile&display=swap');
 
+
 @font-face {
     font-family: 'Trashy';
     src: url(../fonts/go_around_the_books/go\ around\ the\ books.ttf);
  }
 
+ @font-face {
+     font-family: 'Ghost';
+     src: url(../fonts/i_know_a_ghost/iknowaghost.ttf);
+ }
+
  /* reset */
-* {
+
+ * {
+    padding: 0;
     margin: 0;
-    padding: 0;
-    padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box ;
 }
 
 ul, ol, li {
@@ -25,6 +31,8 @@ ul, ol, li {
     justify-content: center;
     gap: 10px;
 }
+
+/* index */
 
 a {
     text-decoration: none;
@@ -42,8 +50,6 @@ a {
 a:hover {
     background-color: #6314269f;
 }
-
-/* index */
 
 .idioms {
     width: 100vw;
@@ -140,12 +146,6 @@ nav {
 
 /* CONSERTAR STYLE */
 
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box ;
-}
-
 body {
     width: 100wh;
     height: 90vh;
@@ -212,8 +212,8 @@ h1.title {
 }
 
 .keys button {
-    width: 24px;
-    height: 24px;
+    width: 30px;
+    height: 30px;
     margin: 2px;
     cursor: pointer;
     box-shadow: 0px 2px 8px dimgrey;
@@ -251,8 +251,8 @@ h1.title {
 
 @media (min-width: 376px) {
     .keys button {
-        width: 30px;
-        height: 30px;
+        width: 36px;
+        height: 36px;
         font-size: 2em;
     }
 
@@ -271,8 +271,8 @@ h1.title {
 
 @media (min-width: 426px) {
     .keys button {
-        width: 36px;
-        height: 36px;
+        width: 45px;
+        height: 45px;
     }
 
     #secret-word {
@@ -289,8 +289,8 @@ h1.title {
 
 @media (min-width: 769px) {
     .keys button {
-        width: 68px;
-        height: 68px;
+        width: 64px;
+        height: 64px;
     }
 
     #secret-word {
